@@ -10,10 +10,10 @@ import {
 import { useData } from "../context/DataContext";
 
 const Attendance = () => {
-  const { userData, notificationData } = useData();
+  const { userData } = useData();
+  const firstUserData: UserData = userData?.[0] as UserData;
   console.log(userData[0]);
   //  const firstUserData: UserData | undefined = userData?.[0] as UserData;
-  const firstUserData: UserData = userData?.[0] as UserData;
 
   const today = new Date();
   const monthNames = [
@@ -41,7 +41,6 @@ const Attendance = () => {
       </View>
       <View style={styles.day}>
         <View>
-          {" "}
           <Text style={{ fontSize: wp("3.5%"), color: "white" }}>
             Attendance
           </Text>

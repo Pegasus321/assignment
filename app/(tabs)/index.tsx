@@ -36,6 +36,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   main: {
     alignItems: "center",
+    flex: 1,
   },
   container: {
     width: wp("90%"),

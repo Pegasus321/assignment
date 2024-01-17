@@ -28,8 +28,14 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: "#978CD0",
-        // tabBarInactiveTintColor: "#DCD9EF",
+        tabBarInactiveTintColor: "#DCD9EF",
+
         tabBarStyle: {
+          elevation: 5,
+          shadowColor: "#000",
+          shadowOffset: { width: 2, height: 2 },
+          shadowOpacity: 0.2,
+          shadowRadius: 10,
           marginBottom: 20,
           position: "absolute",
           borderRadius: wp("2%"),
@@ -40,15 +46,9 @@ export default function TabLayout() {
           zIndex: 1,
         },
       }}
-      // screenOptions={{
-      //   tabBarActiveTintColor: "white",
-      //   tabBarActiveBackgroundColor: "#978CD0",
-      //   tabBarBackground: {
-
-      //   }
     >
       <Tabs.Screen
-        name="home"
+        name="index"
         options={{
           tabBarShowLabel: false,
           headerTitle: () => (
