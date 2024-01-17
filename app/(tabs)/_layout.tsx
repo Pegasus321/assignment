@@ -4,6 +4,11 @@ import { Pressable, useColorScheme } from "react-native";
 
 // import { Notif } from "../../components/links/Notif";
 
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
+
 import Colors from "../../constants/Colors";
 
 /**
@@ -13,7 +18,7 @@ function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
   color: string;
 }) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+  return <FontAwesome size={20} style={{ marginBottom: 0 }} {...props} />;
 }
 
 export default function TabLayout() {
@@ -22,16 +27,34 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        tabBarActiveTintColor: "#978CD0",
+        // tabBarInactiveTintColor: "#DCD9EF",
+        tabBarStyle: {
+          marginBottom: 20,
+          position: "absolute",
+          borderRadius: wp("2%"),
+          width: wp("90%"),
+          left: "5%",
+          alignSelf: "center",
+
+          zIndex: 1,
+        },
       }}
+      // screenOptions={{
+      //   tabBarActiveTintColor: "white",
+      //   tabBarActiveBackgroundColor: "#978CD0",
+      //   tabBarBackground: {
+
+      //   }
     >
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
+          tabBarShowLabel: false,
           headerTitle: () => (
             <Pressable
               style={{
-                backgroundColor: "lightgrey",
+                backgroundColor: "#EDEDF1",
                 borderRadius: 50,
                 width: 45,
                 height: 45,
@@ -53,7 +76,7 @@ export default function TabLayout() {
           ),
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
-            <Link href="/modal" asChild>
+            <Link href="/notification" asChild>
               <Pressable>
                 {({ pressed }) => (
                   <FontAwesome
@@ -64,7 +87,7 @@ export default function TabLayout() {
                       marginRight: 15,
                       padding: 10,
                       opacity: pressed ? 0.5 : 1,
-                      backgroundColor: "lightgrey",
+                      backgroundColor: "#EDEDF1",
                       borderRadius: 50,
                     }}
                   />
@@ -75,14 +98,14 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="calender"
         options={{
-          title: "Calender",
+          tabBarShowLabel: false,
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="calendar-o" color={color} />
           ),
           headerRight: () => (
-            <Link href="/modal" asChild>
+            <Link href="/notification" asChild>
               <Pressable>
                 {({ pressed }) => (
                   <FontAwesome
@@ -93,7 +116,7 @@ export default function TabLayout() {
                       marginRight: 15,
                       padding: 10,
                       opacity: pressed ? 0.5 : 1,
-                      backgroundColor: "lightgrey",
+                      backgroundColor: "#EDEDF1",
                       borderRadius: 50,
                     }}
                   />
@@ -104,12 +127,13 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="three"
+        name="profile"
         options={{
-          title: "Profile",
+          // title: "Profile",
+          tabBarShowLabel: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
           headerRight: () => (
-            <Link href="/modal" asChild>
+            <Link href="/notification" asChild>
               <Pressable>
                 {({ pressed }) => (
                   <FontAwesome
@@ -120,7 +144,7 @@ export default function TabLayout() {
                       marginRight: 15,
                       padding: 10,
                       opacity: pressed ? 0.5 : 1,
-                      backgroundColor: "lightgrey",
+                      backgroundColor: "#EDEDF1",
                       borderRadius: 50,
                     }}
                   />

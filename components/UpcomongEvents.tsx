@@ -1,6 +1,7 @@
 import React from "react";
 import { FlatList, Text, View } from "react-native";
 import Event from "./elements/Event";
+import { ScrollView } from "react-native-gesture-handler";
 
 const UpcomongEvents = () => {
   const data = [
@@ -46,14 +47,14 @@ const UpcomongEvents = () => {
     },
   ];
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <Text>Upcoming Events ('no.s')</Text>
-      <View>
-        <FlatList
-          data={data}
-          renderItem={({ item }) => <Event item={item} />}
-        />
-      </View>
+
+      <FlatList
+        data={data}
+        renderItem={({ item }) => <Event item={item} />}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 };

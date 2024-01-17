@@ -8,6 +8,9 @@ import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+
+import { DataProvider } from "../context/DataContext";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -43,7 +46,11 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
+  return (
+    <DataProvider>
+      <RootLayoutNav />
+    </DataProvider>
+  );
 }
 
 function RootLayoutNav() {
@@ -54,7 +61,7 @@ function RootLayoutNav() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen
-          name="modal"
+          name="notification"
           options={{ presentation: "modal", headerTitle: "Notifications" }}
         />
       </Stack>

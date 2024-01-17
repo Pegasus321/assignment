@@ -12,16 +12,16 @@ const Quick_links = () => {
       <Text>Quick Links</Text>
 
       <View style={styles.links}>
-        <Link href="/report" style={{ fontSize: wp("3.5%") }}>
+        <Link href="/report" style={{ fontSize: wp("3.5%"), color: "#666666" }}>
           Report
         </Link>
-        <Link href="/report" style={{ fontSize: wp("3.5%") }}>
+        <Link href="/report" style={{ fontSize: wp("3.5%"), color: "#666666" }}>
           Syllabus
         </Link>
-        <Link href="/report" style={{ fontSize: wp("3.5%") }}>
+        <Link href="/report" style={{ fontSize: wp("3.5%"), color: "#666666" }}>
           Unit test
         </Link>
-        <Link href="/report" style={{ fontSize: wp("3.5%") }}>
+        <Link href="/report" style={{ fontSize: wp("3.5%"), color: "#666666" }}>
           Payment
         </Link>
       </View>
