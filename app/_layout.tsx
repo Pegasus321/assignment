@@ -64,6 +64,10 @@ function RootLayoutNav() {
           name="notification"
           options={{ presentation: "modal", headerTitle: "Notifications" }}
         />
+        <Stack.Screen
+          name="report"
+          options={{ presentation: "modal", headerTitle: "Reports" }}
+        />
       </Stack>
     </ThemeProvider>
   );

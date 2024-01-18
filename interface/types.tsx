@@ -11,3 +11,12 @@ export interface UserData {
   parentGuardian: string;
   studentId: string;
 }
+
+export interface RemindersData {
+  reminders: string[];
+  id: string;
+}
+
+interface Reminder {
+  message: string;
+}

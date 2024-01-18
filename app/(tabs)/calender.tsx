@@ -1,35 +1,44 @@
 import { StyleSheet } from "react-native";
+import CalendarPicker, {
+  DateChangedCallback,
+} from "react-native-calendar-picker";
 
-import EditScreenInfo from "../../components/EditScreenInfo";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
+
 import { Text, View } from "../../components/Themed";
+import { useState } from "react";
 
-export default function Calender() {
+const Calender: React.FC = () => {
+  const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
+
+  const onDateChange: DateChangedCallback = (date: any) => {
+    setSelectedStartDate(date);
+  };
+  const startDate = selectedStartDate ? selectedStartDate.toString() : "";
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
+    <View style={{ flex: 1, alignItems: "center" }}>
+      <View style={styles.container}>
+        <CalendarPicker onDateChange={onDateChange} />
+
+        <View>
+          <Text style={{ width: wp("80%") }}>SELECTED DATE : {startDate}</Text>
+        </View>
+      </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
+    marginTop: wp("20%"),
+    width: wp("90%"),
   },
 });
+
+export default Calender;

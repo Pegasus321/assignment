@@ -16,20 +16,38 @@ import { collection, getDocs } from "firebase/firestore";
 import { FIREBASE_DB } from "../../firebase/firebaseConfig";
 
 export default function Home() {
-  const { userData, notificationData } = useData();
-  if (userData.length === 0 || notificationData.length === 0) {
+  const { userData } = useData();
+  if (userData.length === 0) {
     // Data is still being fetched or is empty, you can render a loading state or return null
-    return <ActivityIndicator />;
+    return (
+      <View
+        style={{
+          alignItems: "center",
+          alignContent: "center",
+          justifyContent: "center",
+          flex: 1,
+        }}
+      >
+        <ActivityIndicator
+          color="#978CD0"
+          style={{
+            position: "absolute",
+          }}
+        />
+      </View>
+    );
   }
 
   return (
-    <View style={styles.main}>
-      <View style={styles.container}>
-        <Attendance />
-        <Quick_links />
-        <UpcomongEvents />
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <View style={styles.main}>
+        <View style={styles.container}>
+          <Attendance />
+          <Quick_links />
+          <UpcomongEvents />
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
